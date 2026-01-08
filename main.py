@@ -48,3 +48,13 @@ async def get_data():
     return iterem
 
 
+@app.get("/euron/showdata")
+async def Show_data():  
+    iterem=[]
+    cursor=euron_coll.find({})
+    async for document in cursor:
+        print('document in loop ',document)
+        iterem.append(get_helper(document))
+    return iterem
+
+
